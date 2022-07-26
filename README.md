@@ -19,7 +19,7 @@ Testcontainers make the following kinds of tests easier:
 
 ### 1. Add testcontainer dependencies in spring boot application
 
-Add the following dependencies in your spring boot application. This sample application assumes that junit-jupiter / Junit 5 is used and the database that is used is MySQL. Refer the pom.xml of the current project for more details.
+Add the following dependencies in your spring boot application. This sample application assumes that junit-jupiter / Junit 5 is used and the database that is used is MySQL. Refer the [pom.xml](./pom.xml) of the current project for more details.
 
 ```xml
     <dependency>
@@ -38,7 +38,7 @@ Add the following dependencies in your spring boot application. This sample appl
 
 Create MySql container and dynamically set the property source to adjust the url, username and password details. This will create a new docker container and bring my mysql service.
 
-Check out the class below, you can create this class and extend it in all your integration test cases. Check out the BaseTestContainer class in the current project.
+Check out the class below, you can create this class and extend it in all your integration test cases. Check out the [BaseTestContainer.java](./src/test/java/com/punch/testcontainers/BaseTestContainer.java) class in the current project.
 
 ```java
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -108,6 +108,14 @@ class MessageTests extends BaseTestContainer {
 
 }
 
+```
+
+### 4. Run your tests
+
+Now you can run your tests using the following command below.
+
+```bash
+mvn clean test
 ```
 
 This is all is to it. Now you can write your integration tests and enjoy all the advantages of the testcontainers.
